@@ -1,0 +1,262 @@
+/* ============================
+   GLOBAL STYLES + VARIABLES
+============================ */
+:root {
+    --primary: #6C63FF;
+    --secondary: #FF6584;
+    --dark: #1A1A1A;
+    --light: #ffffff;
+    --text: #333;
+    --transition: .3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    background: #f7f7f7;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ============================
+   HEADER (Flexbox)
+============================ */
+header {
+    padding: 1.5rem 5%;
+    background: var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--secondary);
+}
+
+/* ============================
+   ABOUT + HERO COMBINED
+============================ */
+#about {
+    padding: 6rem 5%;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    width: 70%;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+#about h3 {
+    margin-top: 2.5rem;
+    font-size: 1.8rem;
+}
+
+#about img {
+    margin-top: 1.5rem;
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: floatImg 4s ease-in-out infinite;
+}
+
+/* ============================
+   PROJECTS (Grid)
+============================ */
+#projects {
+    padding: 6rem 5%;
+}
+
+#projects h3 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+#projects ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+
+#projects li {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    font-size: 1.05rem;
+}
+
+#projects li:hover {
+    transform: translateY(-8px);
+    background: var(--primary);
+    color: var(--light);
+}
+
+/* ============================
+   SKILLS (Grid)
+============================ */
+#skills {
+    padding: 6rem 5%;
+}
+
+#skills h3 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+#skills table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+#skills th, #skills td {
+    padding: 1rem;
+    border: 2px solid #ccc;
+    text-align: center;
+    transition: var(--transition);
+}
+
+#skills tr:hover {
+    background: var(--primary);
+    color: var(--light);
+}
+
+/* ============================
+   CONTACT SECTION
+============================ */
+#contact {
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+#contact h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#contact form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#contact input, #contact textarea {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#contact button {
+    padding: .8rem;
+    background: var(--primary);
+    color: var(--light);
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#contact button:hover {
+    background: var(--secondary);
+    transform: translateY(-5px);
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+    padding: 1.5rem;
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ============================
+   ANIMATIONS
+============================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes floatImg {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 900px) {
+
+    #about p {
+        width: 90%;
+    }
+
+    #contact form {
+        width: 80%;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #skills table {
+        font-size: .9rem;
+    }
+}
